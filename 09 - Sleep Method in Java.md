@@ -1,66 +1,66 @@
-09 - Sleep Method in Java
+```markdown
+# 09 - Sleep Method in Java
 
-================================================================================
-TOPIC OVERVIEW
-================================================================================
+## TOPIC OVERVIEW
 The sleep() method is one of the most important methods in Java threading. It is
 used to pause the execution of a thread for a specified amount of time. This is
 helpful when a program needs to wait, delay work, or allow other threads to run.
 
-Why this topic is important:
+**Why this topic is important:**
 - It explains how to pause thread execution safely.
 - It is used in many examples related to scheduling and timing.
 - It helps understand how threads behave under different conditions.
 - It is a key concept for interview preparation and real-world development.
 
-================================================================================
-1. DEFINITION OF sleep() METHOD
-================================================================================
+## 1. DEFINITION OF sleep() METHOD
 The sleep() method is a static method of the Thread class.
 
-Syntax:
-Thread.sleep(milliseconds)
+**Syntax:**
+```java
+Thread.sleep(long milliseconds);
+
+```
 
 It causes the currently executing thread to pause for the specified number of
 milliseconds.
 
-Important note:
-- sleep() throws InterruptedException.
-- So we must handle it using try-catch or declare throws.
+**Important note:**
 
-================================================================================
-2. WHAT DOES sleep() DO?
-================================================================================
+* sleep() throws `InterruptedException`.
+* So we must handle it using try-catch or declare throws.
+
+## 2. WHAT DOES sleep() DO?
+
 The sleep() method:
-- pauses the current thread temporarily
-- does not stop the thread permanently
-- gives other threads a chance to execute
-- helps control timing in programs
+
+* pauses the current thread temporarily
+* does not stop the thread permanently
+* gives other threads a chance to execute
+* helps control timing in programs
 
 It is useful when you want the program to wait for a short period before continuing.
 
-================================================================================
-3. WHY DO WE USE sleep()?
-================================================================================
+## 3. WHY DO WE USE sleep()?
+
 We use sleep() when we want to:
-- delay execution
-- simulate waiting time
-- allow another thread to run
-- test thread scheduling behavior
-- create time-based logic in applications
 
-================================================================================
-4. IMPORTANT POINTS ABOUT sleep()
-================================================================================
-- sleep() is a static method.
-- It pauses the currently running thread only.
-- The exact sleeping time may not be precise due to system scheduling.
-- It throws InterruptedException.
-- After sleeping, the thread resumes execution from the next statement.
+* delay execution
+* simulate waiting time
+* allow another thread to run
+* test thread scheduling behavior
+* create time-based logic in applications
 
-================================================================================
-5. PSEUDOCODE FOR sleep()
-================================================================================
+## 4. IMPORTANT POINTS ABOUT sleep()
+
+* sleep() is a static method.
+* It pauses the currently running thread only.
+* The exact sleeping time may not be precise due to system scheduling.
+* It throws InterruptedException.
+* After sleeping, the thread resumes execution from the next statement.
+
+## 5. PSEUDOCODE FOR sleep()
+
+```text
 BEGIN
     START thread
     PRINT message
@@ -68,13 +68,16 @@ BEGIN
     PRINT message after sleep
 END
 
-================================================================================
-6. PROGRAM 1: SIMPLE sleep() EXAMPLE
-================================================================================
-Headline:
+```
+
+### 6. PROGRAM 1: SIMPLE sleep() EXAMPLE
+
+**Headline:**
 Pausing Execution with Thread.sleep()
 
-Program:
+**Program:**
+
+```java
 public class SleepExample1 {
     public static void main(String[] args) {
         System.out.println("Program started");
@@ -90,52 +93,72 @@ public class SleepExample1 {
     }
 }
 
-Why this program is used:
-- It shows the simplest use of sleep().
-- It explains how the program pauses execution for a fixed time.
+```
 
-How this helps Java:
-- It teaches the basic concept of delaying work.
-- It helps understand the importance of exception handling.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows the simplest use of sleep().
+* It explains how the program pauses execution for a fixed time.
+
+**How this helps Java:**
+
+* It teaches the basic concept of delaying work.
+* It helps understand the importance of exception handling.
+
+**Line-by-line explanation:**
+
 1. public class SleepExample1 {
-   - Declares the class.
+* Declares the class.
+
 
 2. public static void main(String[] args) {
-   - Entry point of the program.
+* Entry point of the program.
+
 
 3. System.out.println("Program started");
-   - Prints a message at the beginning.
+* Prints a message at the beginning.
+
 
 4. try {
-   - Starts a block to handle exceptions.
+* Starts a block to handle exceptions.
+
 
 5. Thread.sleep(2000);
-   - Pauses execution for 2000 milliseconds (2 seconds).
+* Pauses execution for 2000 milliseconds (2 seconds).
+
 
 6. System.out.println("After 2 seconds");
-   - Prints message after the pause.
+* Prints message after the pause.
+
 
 7. } catch (InterruptedException e) {
-   - Handles the exception thrown by sleep().
+* Handles the exception thrown by sleep().
+
 
 8. e.printStackTrace();
-   - Prints the error details.
+* Prints the error details.
+
 
 9. }
-   - Ends the catch block.
+* Ends the catch block.
+
 
 10. System.out.println("Program finished");
-    - Prints the final message.
+* Prints the final message.
+
 
 11. }
-    - Ends main.
+* Ends main.
+
 
 12. }
-    - Ends class.
+* Ends class.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class SleepExample1 {
     // Main class of the program.
     public static void main(String[] args) {
@@ -160,21 +183,28 @@ public class SleepExample1 {
     }
 }
 
-Output:
+```
+
+**Output:**
+
+```text
 Program started
 After 2 seconds
 Program finished
 
-Summary:
+```
+
+**Summary:**
 This program shows how Thread.sleep() pauses the current thread for a specific duration.
 
-================================================================================
-7. PROGRAM 2: sleep() INSIDE A THREAD
-================================================================================
-Headline:
+### 7. PROGRAM 2: sleep() INSIDE A THREAD
+
+**Headline:**
 Using sleep() in a Multithreaded Program
 
-Program:
+**Program:**
+
+```java
 public class SleepExample2 {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
@@ -192,49 +222,68 @@ public class SleepExample2 {
     }
 }
 
-Why this program is used:
-- It shows how sleep() works inside a thread.
-- It helps understand how a thread can pause between actions.
+```
 
-How this helps Java:
-- It demonstrates timing control in multithreading.
-- It shows how one thread can wait while another thread runs.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how sleep() works inside a thread.
+* It helps understand how a thread can pause between actions.
+
+**How this helps Java:**
+
+* It demonstrates timing control in multithreading.
+* It shows how one thread can wait while another thread runs.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates a new thread.
+* Creates a new thread.
+
 
 2. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 3. System.out.println("Thread running: " + i);
-   - Prints the current number.
+* Prints the current number.
+
 
 4. try {
-   - Starts exception handling.
+* Starts exception handling.
+
 
 5. Thread.sleep(1000);
-   - Pauses the thread for 1 second.
+* Pauses the thread for 1 second.
+
 
 6. } catch (InterruptedException e) {
-   - Handles interruption exception.
+* Handles interruption exception.
+
 
 7. e.printStackTrace();
-   - Prints error details.
+* Prints error details.
+
 
 8. }
-   - Ends catch block.
+* Ends catch block.
+
 
 9. }
-   - Ends loop.
+* Ends loop.
+
 
 10. });
-    - Ends lambda expression.
+* Ends lambda expression.
+
 
 11. t1.start();
-    - Starts the thread.
+* Starts the thread.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class SleepExample2 {
     // Program class.
     public static void main(String[] args) {
@@ -262,21 +311,28 @@ public class SleepExample2 {
     }
 }
 
-Output example:
+```
+
+**Output example:**
+
+```text
 Thread running: 1
 Thread running: 2
 Thread running: 3
 
-Summary:
+```
+
+**Summary:**
 This program shows how sleep() can pause each iteration of a thread.
 
-================================================================================
-8. PROGRAM 3: sleep() WITH TWO THREADS
-================================================================================
-Headline:
+### 8. PROGRAM 3: sleep() WITH TWO THREADS
+
+**Headline:**
 Showing Thread Timing With Multiple Threads
 
-Program:
+**Program:**
+
+```java
 public class SleepExample3 {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
@@ -306,82 +362,112 @@ public class SleepExample3 {
     }
 }
 
-Why this program is used:
-- It shows how two threads can pause and resume at different times.
-- It helps learners understand thread coordination and timing.
+```
 
-How this helps Java:
-- It teaches how threads can share CPU time with delays.
-- It gives a practical example of concurrency.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how two threads can pause and resume at different times.
+* It helps learners understand thread coordination and timing.
+
+**How this helps Java:**
+
+* It teaches how threads can share CPU time with delays.
+* It gives a practical example of concurrency.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates first thread.
+* Creates first thread.
+
 
 2. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 3. System.out.println("Thread 1: " + i);
-   - Prints current value of thread 1.
+* Prints current value of thread 1.
+
 
 4. try {
-   - Starts exception handling block.
+* Starts exception handling block.
+
 
 5. Thread.sleep(500);
-   - Pauses for 500 milliseconds.
+* Pauses for 500 milliseconds.
+
 
 6. } catch (InterruptedException e) {
-   - Handles interruption.
+* Handles interruption.
+
 
 7. e.printStackTrace();
-   - Prints error details.
+* Prints error details.
+
 
 8. }
-   - Ends block.
+* Ends block.
+
 
 9. }
-   - Ends loop.
+* Ends loop.
+
 
 10. });
-    - Ends lambda for thread 1.
+* Ends lambda for thread 1.
+
 
 11. Thread t2 = new Thread(() -> {
-    - Creates second thread.
+* Creates second thread.
+
 
 12. for (int i = 1; i <= 3; i++) {
-    - Loop runs three times.
+* Loop runs three times.
+
 
 13. System.out.println("Thread 2: " + i);
-    - Prints current value of thread 2.
+* Prints current value of thread 2.
+
 
 14. try {
-    - Starts exception handling block.
+* Starts exception handling block.
+
 
 15. Thread.sleep(500);
-    - Pauses for 500 milliseconds.
+* Pauses for 500 milliseconds.
+
 
 16. } catch (InterruptedException e) {
-    - Handles interruption.
+* Handles interruption.
+
 
 17. e.printStackTrace();
-    - Prints error details.
+* Prints error details.
+
 
 18. }
-    - Ends block.
+* Ends block.
+
 
 19. }
-    - Ends loop.
+* Ends loop.
+
 
 20. });
-    - Ends lambda for thread 2.
+* Ends lambda for thread 2.
+
 
 21. t1.start();
-    - Starts thread 1.
+* Starts thread 1.
+
 
 22. t2.start();
-    - Starts thread 2.
+* Starts thread 2.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class SleepExample3 {
     // Program class.
     public static void main(String[] args) {
@@ -429,7 +515,11 @@ public class SleepExample3 {
     }
 }
 
-Output example:
+```
+
+**Output example:**
+
+```text
 Thread 1: 1
 Thread 2: 1
 Thread 1: 2
@@ -437,37 +527,42 @@ Thread 2: 2
 Thread 1: 3
 Thread 2: 3
 
-Summary:
+```
+
+**Summary:**
 This program demonstrates how two threads can use sleep() to pause between actions.
 
-================================================================================
-9. COMMON MISTAKES WITH sleep()
-================================================================================
-- Forgetting to handle InterruptedException
-- Assuming sleep() guarantees exact timing
-- Calling sleep() on the wrong thread
-- Using sleep() as a solution for synchronization problems
+## 9. COMMON MISTAKES WITH sleep()
 
-================================================================================
-10. FINAL SUMMARY
-================================================================================
+* Forgetting to handle InterruptedException
+* Assuming sleep() guarantees exact timing
+* Calling sleep() on the wrong thread
+* Using sleep() as a solution for synchronization problems
+
+## 10. FINAL SUMMARY
+
 The sleep() method is a simple but very important thread method in Java. It pauses
 execution for a specified time and allows other threads to run. Although it is not
 used for synchronization, it is extremely useful for timing, delays, and scheduling
 examples.
 
-================================================================================
-11. PROFESSIONAL NOTE FOR REPOSITORY USE
-================================================================================
+## 11. PROFESSIONAL NOTE FOR REPOSITORY USE
+
 This topic is excellent for a GitHub repository because it includes:
-- definition and theory
-- multiple practical programs
-- code comments
-- outputs and summaries
-- clear explanation of how timing works in threads
+
+* definition and theory
+* multiple practical programs
+* code comments
+* outputs and summaries
+* clear explanation of how timing works in threads
 
 A suggested structure is:
-- theory/
-- examples/
-- outputs/
-- notes/
+
+* theory/
+* examples/
+* outputs/
+* notes/
+
+```
+
+```

@@ -1,59 +1,57 @@
-10 - Join Method in Java
+# 10 - Join Method in Java
 
-================================================================================
-TOPIC OVERVIEW
-================================================================================
+## TOPIC OVERVIEW
 The join() method is used when one thread wants to wait for another thread to
 finish its execution. It is one of the most important methods in Java multithreading
 because it helps control the order of execution between threads.
 
-Why this topic is important:
+**Why this topic is important:**
 - It helps coordinate multiple threads.
 - It is useful when one task depends on another task.
 - It improves understanding of thread synchronization at a basic level.
 - It is commonly used in interview questions and practical coding examples.
 
-================================================================================
-1. DEFINITION OF join() METHOD
-================================================================================
+## 1. DEFINITION OF join() METHOD
 The join() method belongs to the Thread class.
 
 It allows a thread to wait until another thread completes its execution.
 
-Syntax:
-thread.join();
+**Syntax:**
+```java
+public final void join() throws InterruptedException
+
+```
 
 It is usually called on a thread object.
 
-================================================================================
-2. WHAT DOES join() DO?
-================================================================================
-The join() method:
-- makes the current thread wait for the specified thread to finish
-- ensures the calling thread continues only after the target thread completes
-- helps maintain order in multithreaded programs
+## 2. WHAT DOES join() DO?
 
-================================================================================
-3. WHY DO WE USE join()?
-================================================================================
+The join() method:
+
+* makes the current thread wait for the specified thread to finish
+* ensures the calling thread continues only after the target thread completes
+* helps maintain order in multithreaded programs
+
+## 3. WHY DO WE USE join()?
+
 We use join() when:
-- one thread needs results produced by another thread
-- we want a main thread to wait for worker threads before continuing
-- we want to ensure all tasks complete before moving ahead
+
+* one thread needs results produced by another thread
+* we want a main thread to wait for worker threads before continuing
+* we want to ensure all tasks complete before moving ahead
 
 This is especially useful in applications where certain operations depend on each other.
 
-================================================================================
-4. IMPORTANT POINTS ABOUT join()
-================================================================================
-- join() throws InterruptedException.
-- It can be called on a thread object.
-- If multiple threads are waiting, the order is controlled by the scheduler.
-- join() does not make the thread run faster; it only waits.
+## 4. IMPORTANT POINTS ABOUT join()
 
-================================================================================
-5. PSEUDOCODE FOR join()
-================================================================================
+* join() throws `InterruptedException`.
+* It can be called on a thread object.
+* If multiple threads are waiting, the order is controlled by the scheduler.
+* join() does not make the thread run faster; it only waits.
+
+## 5. PSEUDOCODE FOR join()
+
+```text
 BEGIN
     CREATE thread T1
     CREATE thread T2
@@ -67,13 +65,16 @@ BEGIN
     DISPLAY message after both threads finish
 END
 
-================================================================================
-6. PROGRAM 1: BASIC join() EXAMPLE
-================================================================================
-Headline:
+```
+
+### 6. PROGRAM 1: BASIC join() EXAMPLE
+
+**Headline:**
 Waiting for a Thread to Finish Using join()
 
-Program:
+**Program:**
+
+```java
 public class JoinExample1 {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
@@ -88,52 +89,72 @@ public class JoinExample1 {
     }
 }
 
-Why this program is used:
-- It shows the simplest use of join().
-- It explains how the main thread waits for a child thread to complete.
+```
 
-How this helps Java:
-- It teaches the basic purpose of join().
-- It shows how output order can be controlled when needed.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows the simplest use of join().
+* It explains how the main thread waits for a child thread to complete.
+
+**How this helps Java:**
+
+* It teaches the basic purpose of join().
+* It shows how output order can be controlled when needed.
+
+**Line-by-line explanation:**
+
 1. public class JoinExample1 {
-   - Declares the class.
+* Declares the class.
+
 
 2. public static void main(String[] args) throws InterruptedException {
-   - Main method may throw InterruptedException.
+* Main method may throw InterruptedException.
+
 
 3. Thread t1 = new Thread(() -> {
-   - Creates a child thread.
+* Creates a child thread.
+
 
 4. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 5. System.out.println("Child thread: " + i);
-   - Prints each iteration value.
+* Prints each iteration value.
+
 
 6. }
-   - Ends the loop.
+* Ends the loop.
+
 
 7. });
-   - Ends lambda expression.
+* Ends lambda expression.
+
 
 8. t1.start();
-   - Starts the thread.
+* Starts the thread.
+
 
 9. t1.join();
-   - Waits until t1 finishes.
+* Waits until t1 finishes.
+
 
 10. System.out.println("Main thread continues after join");
-    - Prints message after child thread completes.
+* Prints message after child thread completes.
+
 
 11. }
-    - Ends main.
+* Ends main.
+
 
 12. }
-    - Ends class.
+* Ends class.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class JoinExample1 {
     // Main program class.
     public static void main(String[] args) throws InterruptedException {
@@ -156,22 +177,29 @@ public class JoinExample1 {
     }
 }
 
-Output:
+```
+
+**Output:**
+
+```text
 Child thread: 1
 Child thread: 2
 Child thread: 3
 Main thread continues after join
 
-Summary:
+```
+
+**Summary:**
 This example shows how join() makes the main thread wait for the child thread to finish.
 
-================================================================================
-7. PROGRAM 2: JOINING TWO THREADS
-================================================================================
-Headline:
+### 7. PROGRAM 2: JOINING TWO THREADS
+
+**Headline:**
 Waiting for Multiple Threads with join()
 
-Program:
+**Program:**
+
+```java
 public class JoinExample2 {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
@@ -196,61 +224,84 @@ public class JoinExample2 {
     }
 }
 
-Why this program is used:
-- It shows how to wait for more than one thread.
-- It explains how the main thread can continue only after all important tasks are done.
+```
 
-How this helps Java:
-- It teaches coordination between multiple background tasks.
-- It is helpful in programs where all worker threads must finish before results are shown.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how to wait for more than one thread.
+* It explains how the main thread can continue only after all important tasks are done.
+
+**How this helps Java:**
+
+* It teaches coordination between multiple background tasks.
+* It is helpful in programs where all worker threads must finish before results are shown.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates first thread.
+* Creates first thread.
+
 
 2. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 3. System.out.println("Thread 1: " + i);
-   - Prints the current value of thread 1.
+* Prints the current value of thread 1.
+
 
 4. }
-   - Ends loop.
+* Ends loop.
+
 
 5. });
-   - Ends lambda expression.
+* Ends lambda expression.
+
 
 6. Thread t2 = new Thread(() -> {
-   - Creates second thread.
+* Creates second thread.
+
 
 7. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 8. System.out.println("Thread 2: " + i);
-   - Prints the current value of thread 2.
+* Prints the current value of thread 2.
+
 
 9. }
-   - Ends loop.
+* Ends loop.
+
 
 10. });
-    - Ends lambda expression.
+* Ends lambda expression.
+
 
 11. t1.start();
-    - Starts thread 1.
+* Starts thread 1.
+
 
 12. t2.start();
-    - Starts thread 2.
+* Starts thread 2.
+
 
 13. t1.join();
-    - Waits for thread 1 to finish.
+* Waits for thread 1 to finish.
+
 
 14. t2.join();
-    - Waits for thread 2 to finish.
+* Waits for thread 2 to finish.
+
 
 15. System.out.println("Both threads completed");
-    - Prints message after both threads finish.
+* Prints message after both threads finish.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class JoinExample2 {
     // Program class.
     public static void main(String[] args) throws InterruptedException {
@@ -288,7 +339,11 @@ public class JoinExample2 {
     }
 }
 
-Output example:
+```
+
+**Output example:**
+
+```text
 Thread 1: 1
 Thread 2: 1
 Thread 1: 2
@@ -297,16 +352,19 @@ Thread 1: 3
 Thread 2: 3
 Both threads completed
 
-Summary:
+```
+
+**Summary:**
 This program shows how join() can be used to wait for multiple threads to finish.
 
-================================================================================
-8. PROGRAM 3: join() WITH sleep()
-================================================================================
-Headline:
+### 8. PROGRAM 3: join() WITH sleep()
+
+**Headline:**
 Combining join() and sleep() for Controlled Execution
 
-Program:
+**Program:**
+
+```java
 public class JoinExample3 {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
@@ -324,49 +382,68 @@ public class JoinExample3 {
     }
 }
 
-Why this program is used:
-- It shows how join() can be combined with sleep().
-- It explains how a thread can wait some time and then finish.
+```
 
-How this helps Java:
-- It demonstrates practical use of both methods together.
-- It helps understand timing and coordination in thread programming.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how join() can be combined with sleep().
+* It explains how a thread can wait some time and then finish.
+
+**How this helps Java:**
+
+* It demonstrates practical use of both methods together.
+* It helps understand timing and coordination in thread programming.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates a new thread.
+* Creates a new thread.
+
 
 2. try {
-   - Starts exception handling block.
+* Starts exception handling block.
+
 
 3. Thread.sleep(1000);
-   - Makes the thread wait for 1 second.
+* Makes the thread wait for 1 second.
+
 
 4. System.out.println("Thread 1 finished after sleep");
-   - Prints message after the wait.
+* Prints message after the wait.
+
 
 5. } catch (InterruptedException e) {
-   - Handles interruption exception.
+* Handles interruption exception.
+
 
 6. e.printStackTrace();
-   - Prints exception details.
+* Prints exception details.
+
 
 7. }
-   - Ends exception block.
+* Ends exception block.
+
 
 8. });
-   - Ends lambda expression.
+* Ends lambda expression.
+
 
 9. t1.start();
-   - Starts the thread.
+* Starts the thread.
+
 
 10. t1.join();
-    - Waits until the thread completes.
+* Waits until the thread completes.
+
 
 11. System.out.println("Main thread continues after thread 1 completes");
-    - Prints message after join.
+* Prints message after join.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class JoinExample3 {
     // Program class.
     public static void main(String[] args) throws InterruptedException {
@@ -395,51 +472,57 @@ public class JoinExample3 {
     }
 }
 
-Output:
+```
+
+**Output:**
+
+```text
 Thread 1 finished after sleep
 Main thread continues after thread 1 completes
 
-Summary:
+```
+
+**Summary:**
 This program shows how join() can be used after a thread performs a delay.
 
-================================================================================
-9. COMMON DIFFERENCES BETWEEN sleep() AND join()
-================================================================================
-sleep():
-- pauses the current thread itself
-- does not wait for another thread to finish
+## 9. COMMON DIFFERENCES BETWEEN sleep() AND join()
 
-join():
-- waits for another thread to finish
-- used for coordination between threads
+| Feature | `sleep()` | `join()` |
+| --- | --- | --- |
+| **Purpose** | Pauses the current thread itself for a specified duration. | Waits for another specific thread to complete its execution. |
+| **Static vs Instance** | Static method (`Thread.sleep()`). | Instance method called on a specific thread object (`t1.join()`). |
+| **Coordination** | Does not wait for another thread to finish. | Used explicitly for coordination between multiple threads. |
 
-================================================================================
-10. COMMON MISTAKES WITH join()
-================================================================================
-- Forgetting to handle InterruptedException
-- Calling join() on a thread that has not started yet
-- Assuming join() guarantees a specific output order in all cases
+## 10. COMMON MISTAKES WITH join()
 
-================================================================================
-11. FINAL SUMMARY
-================================================================================
+* Forgetting to handle InterruptedException
+* Calling join() on a thread that has not started yet
+* Assuming join() guarantees a specific output order in all cases
+
+## 11. FINAL SUMMARY
+
 The join() method is used to make one thread wait until another thread finishes.
 It is especially useful when one task depends on another. Although it does not make
 threads run faster, it helps in ordering and coordination, making the program easier
 to control and understand.
 
-================================================================================
-12. PROFESSIONAL NOTE FOR REPOSITORY USE
-================================================================================
+## 12. PROFESSIONAL NOTE FOR REPOSITORY USE
+
 This topic is excellent for a GitHub repository because it includes:
-- clear theory
-- practical programs
-- line-by-line explanation
-- comments for each statement
-- outputs and summary sections
+
+* clear theory
+* practical programs
+* line-by-line explanation
+* comments for each statement
+* outputs and summary sections
 
 A good folder structure can be:
-- theory/
-- examples/
-- outputs/
-- notes/
+
+* theory/
+* examples/
+* outputs/
+* notes/
+
+```
+
+```

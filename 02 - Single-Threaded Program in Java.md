@@ -1,8 +1,8 @@
-02 - Single-Threaded Program in Java
+# 02 - Single-Threaded Program in Java
 
-================================================================================
-TOPIC OVERVIEW
-================================================================================
+
+### TOPIC OVERVIEW
+
 A single-threaded program is a program in which only one thread of execution runs
 at a time. In Java, the main() method runs in the main thread. This means that the
 program executes instructions one after another in a sequential manner.
@@ -13,9 +13,9 @@ Why this topic is important:
 - It gives a strong foundation for understanding concurrency and parallelism.
 - It shows why multithreading is needed when we want multiple tasks to run together.
 
-================================================================================
-1. DEFINITION OF SINGLE-THREADED PROGRAM
-================================================================================
+
+### 1. DEFINITION OF SINGLE-THREADED PROGRAM
+
 A single-threaded program is a Java program that has exactly one active path of
 execution. The program starts from main(), follows one instruction flow, and
 finishes that flow before moving to another independent task.
@@ -25,9 +25,9 @@ In simple terms:
 - There is no simultaneous execution of multiple tasks inside the program.
 - If one task is slow, the rest of the program must wait.
 
-================================================================================
-2. DEFINITION OF THREAD
-================================================================================
+
+### 2. DEFINITION OF THREAD
+
 A thread is the smallest unit of execution in a program.
 
 Important points:
@@ -35,9 +35,9 @@ Important points:
 - A Java program always starts with one thread called the main thread.
 - If we create more threads, the program becomes multi-threaded.
 
-================================================================================
-3. WHAT IS THE MAIN THREAD?
-================================================================================
+
+### 3. WHAT IS THE MAIN THREAD?
+
 The main thread is the first thread created when a Java program starts.
 It executes the main() method.
 
@@ -49,9 +49,9 @@ This line tells Java:
 - Accept command-line inputs if any.
 - Run all statements in this method in the main thread.
 
-================================================================================
-4. WHY USE A SINGLE-THREADED PROGRAM?
-================================================================================
+
+### 4. WHY USE A SINGLE-THREADED PROGRAM?
+
 A single-threaded program is useful when:
 - The tasks are very simple.
 - The program does not need parallel execution.
@@ -64,9 +64,9 @@ It helps Java developers because:
 - It helps in understanding how Java programs move from one statement to another.
 - It becomes easier to compare single-threaded and multi-threaded behavior later.
 
-================================================================================
-5. ADVANTAGES OF SINGLE-THREADED PROGRAMS
-================================================================================
+
+### 5. ADVANTAGES OF SINGLE-THREADED PROGRAMS
+
 - Easy to understand.
 - Easy to debug.
 - No synchronization issues.
@@ -74,17 +74,17 @@ It helps Java developers because:
 - No deadlock problem.
 - Good for small programs and beginners.
 
-================================================================================
-6. DISADVANTAGES OF SINGLE-THREADED PROGRAMS
-================================================================================
+
+### 6. DISADVANTAGES OF SINGLE-THREADED PROGRAMS
+
 - Slower when performing many tasks at once.
 - One long task can block the whole program.
 - Not ideal for server applications or large systems.
 - Poor use of multi-core processors.
 
-================================================================================
-7. PSEUDOCODE FOR SINGLE-THREADED PROGRAM
-================================================================================
+
+### 7. PSEUDOCODE FOR SINGLE-THREADED PROGRAM
+
 BEGIN
     DISPLAY message "Program started"
     CALL method to perform task 1
@@ -94,9 +94,9 @@ END
 
 This pseudocode shows that each action happens one after another.
 
-================================================================================
-8. PROGRAM 1: SIMPLE SINGLE-THREADED PROGRAM
-================================================================================
+
+### 8. PROGRAM 1: SIMPLE SINGLE-THREADED PROGRAM
+
 Headline:
 Understanding the Flow of a Basic Single-Threaded Java Program
 
@@ -170,9 +170,9 @@ Program finished
 Summary:
 This program introduces the concept of sequential execution in Java.
 
-================================================================================
-9. PROGRAM 2: SINGLE-THREADED PROGRAM USING METHODS
-================================================================================
+
+### 9. PROGRAM 2: SINGLE-THREADED PROGRAM USING METHODS
+
 Headline:
 Understanding Method Calls in a Single-Threaded Java Program
 
@@ -302,9 +302,9 @@ Program completed
 Summary:
 This program shows how a single-threaded Java application executes methods one after another.
 
-================================================================================
-10. PROGRAM 3: SINGLE-THREADED PROGRAM WITH USER INPUT
-================================================================================
+
+### 10. PROGRAM 3: SINGLE-THREADED PROGRAM WITH USER INPUT
+
 Headline:
 Using Input in a Single-Threaded Java Program
 
@@ -384,9 +384,9 @@ Hello, John
 Summary:
 This program shows how a single-threaded Java program can interact with the user.
 
-================================================================================
-11. PROGRAM 4: SINGLE-THREADED PROGRAM USING LOOPS
-================================================================================
+
+### 11. PROGRAM 4: SINGLE-THREADED PROGRAM USING LOOPS
+
 Headline:
 Understanding Sequential Execution with Loops
 
@@ -441,9 +441,9 @@ Value: 5
 Summary:
 This program demonstrates sequential repetition in a single-threaded Java program.
 
-================================================================================
-12. COMPARISON: SINGLE-THREADED VS MULTI-THREADED
-================================================================================
+
+### 12. COMPARISON: SINGLE-THREADED VS MULTI-THREADED
+
 Single-threaded:
 - One path of execution.
 - Easier to write and debug.
@@ -456,9 +456,9 @@ Multi-threaded:
 - More complex and harder to debug.
 - Needs synchronization.
 
-================================================================================
+
 13. IMPORTANT DEFINITIONS RECAP
-================================================================================
+
 - Thread: A path of execution in a program.
 - Single-threaded program: A program with only one thread running.
 - Main thread: The thread that starts the program.
@@ -466,18 +466,18 @@ Multi-threaded:
 - Method: A block of code used to perform a task.
 - Loop: A construct that repeats instructions.
 
-================================================================================
+
 14. FINAL SUMMARY
-================================================================================
+
 A single-threaded program in Java runs one task at a time using the main thread.
 It is simple, easy to understand, and useful for learning the basic flow of Java.
 The main method is the starting point, and methods, loops, and input handling can all
 be used inside the program. Although it is not ideal for high-performance multitasking,
 it builds the foundation needed to understand multithreading later.
 
-================================================================================
+
 15. PROFESSIONAL NOTE FOR REPOSITORY USE
-================================================================================
+
 This topic is suitable for a GitHub repository because it covers:
 - beginner-friendly explanation
 - real Java programs

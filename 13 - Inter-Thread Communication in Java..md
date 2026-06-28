@@ -1,7 +1,7 @@
 # 13 - Inter-Thread Communication in Java
 
 
-TOPIC OVERVIEW
+### TOPIC OVERVIEW
 
 Inter-thread communication is the process by which one thread communicates with
 another thread so they can coordinate their work. In Java, this is mainly achieved
@@ -14,7 +14,7 @@ Why this topic is important:
 - It is a key concept in advanced multithreading.
 
 
-1. DEFINITION OF INTER-THREAD COMMUNICATION
+### 1. DEFINITION OF INTER-THREAD COMMUNICATION
 
 Inter-thread communication means allowing threads to exchange information and
 coordinate their execution.
@@ -25,7 +25,7 @@ Instead of running independently without awareness of each other, threads can:
 - resume execution after another thread completes a task
 
 
-2. WHY COMMUNICATION BETWEEN THREADS IS NEEDED
+### 2. WHY COMMUNICATION BETWEEN THREADS IS NEEDED
 
 Threads often share resources. For example:
 - one thread produces data
@@ -35,7 +35,7 @@ If the consumer runs before the producer has prepared data, the program may beha
 incorrectly. Inter-thread communication solves this problem.
 
 
-3. METHODS USED FOR COMMUNICATION
+### 3. METHODS USED FOR COMMUNICATION
 
 The main methods are:
 - wait()
@@ -48,7 +48,7 @@ The main methods are:
 These methods are declared in the Object class and must be called inside synchronized code.
 
 
-4. IMPORTANT RULES
+### 4. IMPORTANT RULES
 
 - wait(), notify(), and notifyAll() are called only from inside synchronized block or method.
 - A thread releases the lock when it calls wait().
@@ -56,7 +56,7 @@ These methods are declared in the Object class and must be called inside synchro
 - notifyAll() is safer when multiple threads may be waiting.
 
 
-5. PSEUDOCODE FOR INTER-THREAD COMMUNICATION
+### 5. PSEUDOCODE FOR INTER-THREAD COMMUNICATION
 
 BEGIN
     THREAD 1:
@@ -77,7 +77,7 @@ BEGIN
 END
 
 
-6. PROGRAM 1: SIMPLE wait() AND notify() EXAMPLE
+### 6. PROGRAM 1: SIMPLE wait() AND notify() EXAMPLE
 
 Headline:
 Using wait() and notify() to Coordinate Threads
@@ -146,7 +146,7 @@ How this helps Java:
 - It teaches how threads can communicate safely.
 - It prevents busy waiting by using wait() and notify().
 
-Line-by-line explanation:
+### Line-by-line explanation:
 1. class SharedResource {
    - Declares a class that stores shared data.
 
@@ -285,7 +285,7 @@ Line-by-line explanation:
 46. }
     - Ends class.
 
-Comments:
+### Comments:
 class SharedResource {
     // Shared object used by producer and consumer.
     private int value  0;
@@ -372,19 +372,19 @@ public class InterThreadExample1 {
     }
 }
 
-Output example:
+### Output example:
 Producer produced: 10
 Consumer consumed: 10
 Producer produced: 10
 Consumer consumed: 10
 
-Summary:
+### Summary:
 This program demonstrates how wait() and notify() enable coordination between two threads.
 
 
-7. PROGRAM 2: USING notifyAll()
+### 7. PROGRAM 2: USING notifyAll()
 
-Headline:
+### Headline:
 Waking Up All Waiting Threads Using notifyAll()
 
 Program:
@@ -451,7 +451,7 @@ How this helps Java:
 - It teaches a safer way to signal multiple waiting threads.
 - It is useful in larger applications where multiple consumers may exist.
 
-Line-by-line explanation:
+### Line-by-line explanation:
 1. synchronized void put(String message) {
    - Producer method is synchronized.
 
@@ -485,7 +485,7 @@ Line-by-line explanation:
 11. notifyAll();
     - Wakes waiting producer and consumer threads.
 
-Comments:
+### Comments:
 class MessageBox {
     // Shared box for messages.
     private String message;
@@ -569,7 +569,7 @@ public class InterThreadExample2 {
     }
 }
 
-Output example:
+### Output example:
 Produced: Message 1
 Consumed: Message 1
 Produced: Message 2
@@ -577,11 +577,11 @@ Consumed: Message 2
 Produced: Message 3
 Consumed: Message 3
 
-Summary:
+### Summary:
 This example shows how notifyAll() wakes all waiting threads so coordination remains safe.
 
 
-8. COMMON PROBLEMS IN INTER-THREAD COMMUNICATION
+### 8. COMMON PROBLEMS IN INTER-THREAD COMMUNICATION
 
 - Using wait() without synchronization
 - Forgetting to use while instead of if
@@ -590,7 +590,7 @@ This example shows how notifyAll() wakes all waiting threads so coordination rem
 - Causing deadlock by improper locking
 
 
-9. FINAL SUMMARY
+### 9. FINAL SUMMARY
 
 Inter-thread communication allows threads to cooperate by sharing signals and
 waiting for conditions. It is mainly done using wait(), notify(), and notifyAll().
@@ -598,7 +598,7 @@ These methods help solve real-world problems such as producer-consumer scenarios
 make multithreaded programs more reliable.
 
 
-10. PROFESSIONAL NOTE FOR REPOSITORY USE
+### 10. PROFESSIONAL NOTE FOR REPOSITORY USE
 
 This topic is excellent for a GitHub repository because it includes:
 - clear theory of communication between threads

@@ -1,22 +1,18 @@
-06 - Thread Life Cycle in Java
+# 06 - Thread Life Cycle in Java
 
-================================================================================
-TOPIC OVERVIEW
-================================================================================
+## TOPIC OVERVIEW
 The thread life cycle describes the different states a thread goes through from
 creation to completion. Understanding the life cycle is very important in Java
 because it helps developers know how threads are scheduled, how they wait, and how
 they terminate.
 
-Why this topic is important:
+**Why this topic is important:**
 - It explains how Java manages threads.
 - It helps in debugging concurrency issues.
 - It improves understanding of thread scheduling.
 - It forms the base for concepts like wait(), notify(), sleep(), join(), and synchronization.
 
-================================================================================
-1. DEFINITION OF THREAD LIFE CYCLE
-================================================================================
+## 1. DEFINITION OF THREAD LIFE CYCLE
 The thread life cycle is the sequence of states that a thread passes through during
 its execution.
 
@@ -27,9 +23,7 @@ A thread can exist in different states such as:
 - Blocked/Waiting
 - Terminated
 
-================================================================================
-2. IMPORTANT STATES OF A THREAD
-================================================================================
+## 2. IMPORTANT STATES OF A THREAD
 1. New
    - The thread object is created but not started yet.
    - The run() method has not executed.
@@ -48,17 +42,13 @@ A thread can exist in different states such as:
    - The thread has finished execution.
    - The run() method has completed.
 
-================================================================================
-3. SIMPLE FLOW OF LIFE CYCLE
-================================================================================
+## 3. SIMPLE FLOW OF LIFE CYCLE
 New -> Runnable -> Running -> Blocked/Waiting -> Runnable -> Terminated
 
 This flow shows that a thread can move back and forth between Runnable and Waiting
 states depending on the situation.
 
-================================================================================
-4. WHY THIS MATTERS IN JAVA
-================================================================================
+## 4. WHY THIS MATTERS IN JAVA
 Understanding thread life cycle helps developers:
 - know when threads are active or inactive
 - avoid unnecessary waiting
@@ -66,9 +56,8 @@ Understanding thread life cycle helps developers:
 - fix issues related to deadlock and starvation
 - write more efficient concurrent programs
 
-================================================================================
-5. PSEUDOCODE FOR THREAD LIFE CYCLE
-================================================================================
+## 5. PSEUDOCODE FOR THREAD LIFE CYCLE
+```text
 BEGIN
     CREATE thread object
     STATE = NEW
@@ -89,13 +78,16 @@ BEGIN
     ENDIF
 END
 
-================================================================================
-6. PROGRAM 1: DEMONSTRATING THE THREAD LIFE CYCLE
-================================================================================
-Headline:
+```
+
+### 6. PROGRAM 1: DEMONSTRATING THE THREAD LIFE CYCLE
+
+**Headline:**
 Understanding the States of a Java Thread
 
-Program:
+**Program:**
+
+```java
 class LifeCycleThread extends Thread {
     public void run() {
         for (int i = 1; i <= 3; i++) {
@@ -122,81 +114,110 @@ public class ThreadLifeCycleExample1 {
     }
 }
 
-Why this program is used:
-- It shows how to check the state of a thread at different points.
-- It helps understand the transition of a thread through its lifecycle.
-- It gives a practical example of using getState().
+```
 
-How this helps Java:
-- It teaches developers how to monitor thread execution.
-- It helps in debugging programs that involve concurrency.
-- It clarifies the practical meaning of each thread state.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how to check the state of a thread at different points.
+* It helps understand the transition of a thread through its lifecycle.
+* It gives a practical example of using getState().
+
+**How this helps Java:**
+
+* It teaches developers how to monitor thread execution.
+* It helps in debugging programs that involve concurrency.
+* It clarifies the practical meaning of each thread state.
+
+**Line-by-line explanation:**
+
 1. class LifeCycleThread extends Thread {
-   - Creates a custom thread class.
+* Creates a custom thread class.
+
 
 2. public void run() {
-   - Defines the job of the thread.
+* Defines the job of the thread.
+
 
 3. for (int i = 1; i <= 3; i++) {
-   - Loops three times.
+* Loops three times.
+
 
 4. System.out.println("Thread is running: " + i);
-   - Prints the current value.
+* Prints the current value.
+
 
 5. }
-   - Ends the loop.
+* Ends the loop.
+
 
 6. }
-   - Ends run().
+* Ends run().
+
 
 7. }
-   - Ends the custom thread class.
+* Ends the custom thread class.
+
 
 8. public class ThreadLifeCycleExample1 {
-   - Main class declaration.
+* Main class declaration.
+
 
 9. public static void main(String[] args) {
-   - Entry point of the program.
+* Entry point of the program.
+
 
 10. LifeCycleThread t1 = new LifeCycleThread();
-    - Creates a thread object.
+* Creates a thread object.
+
 
 11. System.out.println("Thread state after creation: " + t1.getState());
-    - Prints the state when the thread is newly created.
+* Prints the state when the thread is newly created.
+
 
 12. t1.start();
-    - Starts execution of the thread.
+* Starts execution of the thread.
+
 
 13. System.out.println("Thread state after start(): " + t1.getState());
-    - Prints the state soon after calling start().
+* Prints the state soon after calling start().
+
 
 14. try {
-    - Begins exception handling block for join().
+* Begins exception handling block for join().
+
 
 15. t1.join();
-    - Waits for thread t1 to complete.
+* Waits for thread t1 to complete.
+
 
 16. } catch (InterruptedException e) {
-    - Handles interruption errors.
+* Handles interruption errors.
+
 
 17. e.printStackTrace();
-    - Prints the error details.
+* Prints the error details.
+
 
 18. }
-    - Ends catch block.
+* Ends catch block.
+
 
 19. System.out.println("Thread state after completion: " + t1.getState());
-    - Prints the state after the thread has finished.
+* Prints the state after the thread has finished.
+
 
 20. }
-    - Ends main.
+* Ends main.
+
 
 21. }
-    - Ends class.
+* Ends class.
 
-Comments:
+
+
+**Comments:**
+
+```java
 class LifeCycleThread extends Thread {
     // Custom thread class.
     public void run() {
@@ -238,7 +259,11 @@ public class ThreadLifeCycleExample1 {
     }
 }
 
-Output example:
+```
+
+**Output example:**
+
+```text
 Thread state after creation: NEW
 Thread state after start(): RUNNABLE
 Thread is running: 1
@@ -246,16 +271,19 @@ Thread is running: 2
 Thread is running: 3
 Thread state after completion: TERMINATED
 
-Summary:
+```
+
+**Summary:**
 This example shows how a thread moves from NEW to RUNNABLE and finally to TERMINATED.
 
-================================================================================
-7. PROGRAM 2: USING sleep() TO SHOW WAITING STATE
-================================================================================
-Headline:
+### 7. PROGRAM 2: USING sleep() TO SHOW WAITING STATE
+
+**Headline:**
 How sleep() Affects the Thread Life Cycle
 
-Program:
+**Program:**
+
+```java
 public class ThreadLifeCycleExample2 {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
@@ -273,49 +301,68 @@ public class ThreadLifeCycleExample2 {
     }
 }
 
-Why this program is used:
-- It shows how a thread can temporarily pause its execution.
-- It helps understand waiting behavior in the thread lifecycle.
+```
 
-How this helps Java:
-- It explains why a thread may not run continuously.
-- It shows how sleep() affects scheduling.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how a thread can temporarily pause its execution.
+* It helps understand waiting behavior in the thread lifecycle.
+
+**How this helps Java:**
+
+* It explains why a thread may not run continuously.
+* It shows how sleep() affects scheduling.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates a new thread.
+* Creates a new thread.
+
 
 2. try {
-   - Starts a block that may throw an exception.
+* Starts a block that may throw an exception.
+
 
 3. System.out.println("Thread started");
-   - Prints a message when the thread begins.
+* Prints a message when the thread begins.
+
 
 4. Thread.sleep(2000);
-   - Pauses thread execution for 2 seconds.
+* Pauses thread execution for 2 seconds.
+
 
 5. System.out.println("Thread resumed");
-   - Prints a message after waking up.
+* Prints a message after waking up.
+
 
 6. } catch (InterruptedException e) {
-   - Handles interruption exception.
+* Handles interruption exception.
+
 
 7. e.printStackTrace();
-   - Prints exception details.
+* Prints exception details.
+
 
 8. }
-   - Ends exception block.
+* Ends exception block.
+
 
 9. });
-   - Ends lambda body.
+* Ends lambda body.
+
 
 10. t1.start();
-    - Starts the thread.
+* Starts the thread.
+
 
 11. System.out.println("Main thread is running");
-    - Prints message from the main thread.
+* Prints message from the main thread.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class ThreadLifeCycleExample2 {
     // Program class.
     public static void main(String[] args) {
@@ -344,21 +391,28 @@ public class ThreadLifeCycleExample2 {
     }
 }
 
-Output example:
+```
+
+**Output example:**
+
+```text
 Thread started
 Main thread is running
 Thread resumed
 
-Summary:
+```
+
+**Summary:**
 This example shows that a thread can pause and later resume execution, which is part of its lifecycle behavior.
 
-================================================================================
-8. PROGRAM 3: DEMONSTRATING WAITING THROUGH join()
-================================================================================
-Headline:
+### 8. PROGRAM 3: DEMONSTRATING WAITING THROUGH join()
+
+**Headline:**
 Understanding Waiting Behavior with join()
 
-Program:
+**Program:**
+
+```java
 public class ThreadLifeCycleExample3 {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
@@ -373,40 +427,56 @@ public class ThreadLifeCycleExample3 {
     }
 }
 
-Why this program is used:
-- It shows how one thread can wait for another thread to complete.
-- It explains why a thread can be in a waiting state.
+```
 
-How this helps Java:
-- It teaches coordination between multiple threads.
-- It helps when one task depends on another task.
+**Why this program is used:**
 
-Line-by-line explanation:
+* It shows how one thread can wait for another thread to complete.
+* It explains why a thread can be in a waiting state.
+
+**How this helps Java:**
+
+* It teaches coordination between multiple threads.
+* It helps when one task depends on another task.
+
+**Line-by-line explanation:**
+
 1. Thread t1 = new Thread(() -> {
-   - Creates child thread.
+* Creates child thread.
+
 
 2. for (int i = 1; i <= 3; i++) {
-   - Loop runs three times.
+* Loop runs three times.
+
 
 3. System.out.println("Child thread: " + i);
-   - Prints current value.
+* Prints current value.
+
 
 4. }
-   - Ends loop.
+* Ends loop.
+
 
 5. });
-   - Ends lambda expression.
+* Ends lambda expression.
+
 
 6. t1.start();
-   - Starts the child thread.
+* Starts the child thread.
+
 
 7. t1.join();
-   - Waits for child thread to finish.
+* Waits for child thread to finish.
+
 
 8. System.out.println("Main thread continues after child thread finishes");
-   - Prints message after join completes.
+* Prints message after join completes.
 
-Comments:
+
+
+**Comments:**
+
+```java
 public class ThreadLifeCycleExample3 {
     // Program class.
     public static void main(String[] args) throws InterruptedException {
@@ -429,54 +499,64 @@ public class ThreadLifeCycleExample3 {
     }
 }
 
-Output:
+```
+
+**Output:**
+
+```text
 Child thread: 1
 Child thread: 2
 Child thread: 3
 Main thread continues after child thread finishes
 
-Summary:
+```
+
+**Summary:**
 This example shows how join() makes one thread wait until another thread completes.
 
-================================================================================
-9. DIFFERENCE BETWEEN BLOCKED AND WAITING
-================================================================================
+## 9. DIFFERENCE BETWEEN BLOCKED AND WAITING
+
 Blocked:
-- A thread is waiting because it cannot enter a synchronized block or method.
-- It is waiting for a lock.
+
+* A thread is waiting because it cannot enter a synchronized block or method.
+* It is waiting for a lock.
 
 Waiting:
-- A thread is waiting for another thread to notify it or for a timeout to happen.
-- Example: using wait() or join().
 
-================================================================================
-10. COMMON THREAD LIFE CYCLE QUESTIONS
-================================================================================
-- What happens after a thread is started?
-- When does a thread become Runnable?
-- What causes a thread to move into Waiting state?
-- How do we know that a thread is finished?
+* A thread is waiting for another thread to notify it or for a timeout to happen.
+* Example: using wait() or join().
 
-================================================================================
-11. FINAL SUMMARY
-================================================================================
+## 10. COMMON THREAD LIFE CYCLE QUESTIONS
+
+* What happens after a thread is started?
+* When does a thread become Runnable?
+* What causes a thread to move into Waiting state?
+* How do we know that a thread is finished?
+
+## 11. FINAL SUMMARY
+
 The thread life cycle explains how a thread moves between different states during
 its lifetime. Starting from NEW, it becomes RUNNABLE, then RUNNING, may enter WAITING
 or BLOCKED states, and finally reaches TERMINATED. Understanding this flow is essential
 for writing correct and efficient multithreaded Java programs.
 
-================================================================================
-12. PROFESSIONAL NOTE FOR REPOSITORY USE
-================================================================================
+## 12. PROFESSIONAL NOTE FOR REPOSITORY USE
+
 This topic is ideal for a GitHub repository because it includes:
-- theoretical explanation
-- visual flow of states
-- multiple code examples
-- important method usage
-- outputs and summaries
+
+* theoretical explanation
+* visual flow of states
+* multiple code examples
+* important method usage
+* outputs and summaries
 
 A good folder layout for this topic could be:
-- theory/
-- examples/
-- code-output/
-- notes/
+
+* theory/
+* examples/
+* code-output/
+* notes/
+
+```
+
+```

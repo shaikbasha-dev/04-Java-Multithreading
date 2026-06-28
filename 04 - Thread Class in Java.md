@@ -1,31 +1,31 @@
-04 - Thread Class in Java
+# 04 - Thread Class in Java
 
-================================================================================
-TOPIC OVERVIEW
-================================================================================
+
+### TOPIC OVERVIEW
+
 In Java, the Thread class is one of the most important classes used for creating
 and managing threads. A thread is a separate path of execution inside a program.
 The Thread class allows a developer to create new threads, control their behavior,
 and manage their lifecycle.
 
-Why this topic is important:
+### Why this topic is important:
 - It is the core building block of Java multithreading.
 - It helps developers write programs that can perform multiple tasks together.
 - It is essential for understanding how Java handles concurrency.
 - It prepares learners for more advanced concepts like synchronization, executor framework,
   and parallel processing.
 
-================================================================================
-1. DEFINITION OF THREAD CLASS
-================================================================================
+
+### 1. DEFINITION OF THREAD CLASS
+
 The Thread class is a predefined class in Java that represents a thread of execution.
 It provides methods to start, pause, stop, and manage threads.
 
 The Thread class is defined in the java.lang package, so we do not need to import it.
 
-================================================================================
-2. WHAT IS A THREAD?
-================================================================================
+
+### 2. WHAT IS A THREAD?
+
 A thread is the smallest unit of execution in a program.
 
 It can be thought of as:
@@ -35,9 +35,9 @@ It can be thought of as:
 
 Every Java program starts with at least one thread, which is the main thread.
 
-================================================================================
-3. WHY THE Thread CLASS IS IMPORTANT
-================================================================================
+
+### 3. WHY THE Thread CLASS IS IMPORTANT
+
 The Thread class is important because it allows us to:
 - create new threads
 - run multiple tasks simultaneously
@@ -45,9 +45,9 @@ The Thread class is important because it allows us to:
 - handle background operations efficiently
 - improve performance in applications that need parallel execution
 
-================================================================================
-4. THREAD CLASS VS Runnable INTERFACE
-================================================================================
+
+### 4. THREAD CLASS VS Runnable INTERFACE
+
 Both are used to create threads, but they are different:
 
 Thread class:
@@ -59,9 +59,9 @@ Runnable interface:
 - Better when you want to separate task logic from thread logic.
 - More flexible because a class can implement Runnable and also extend another class.
 
-================================================================================
-5. IMPORTANT METHODS OF THE Thread CLASS
-================================================================================
+
+### 5. IMPORTANT METHODS OF THE Thread CLASS
+
 Here are some common methods:
 
 - start() -> starts a new thread and calls run()
@@ -75,9 +75,9 @@ Here are some common methods:
 - setPriority(int p) -> sets priority of thread
 - yield() -> gives chance to another thread to execute
 
-================================================================================
-6. THREAD LIFE CYCLE
-================================================================================
+
+### 6. THREAD LIFE CYCLE
+
 A thread goes through several states:
 
 - New: thread object is created but not started yet
@@ -86,9 +86,9 @@ A thread goes through several states:
 - Blocked/Waiting: thread waits for resource or another thread
 - Terminated: thread has finished execution
 
-================================================================================
-7. PSEUDOCODE FOR USING THE Thread CLASS
-================================================================================
+
+### 7. PSEUDOCODE FOR USING THE Thread CLASS
+
 BEGIN
     CREATE thread object
     SET thread name if needed
@@ -98,9 +98,9 @@ BEGIN
     DISPLAY result
 END
 
-================================================================================
-8. PROGRAM 1: CREATING A THREAD BY EXTENDING Thread CLASS
-================================================================================
+
+### 8. PROGRAM 1: CREATING A THREAD BY EXTENDING Thread CLASS
+
 Headline:
 Creating a Simple Thread by Extending the Thread Class
 
@@ -211,9 +211,9 @@ Thread running: 5
 Summary:
 This program demonstrates how to create a thread by extending the Thread class.
 
-================================================================================
-9. PROGRAM 2: USING start() AND run() DIFFERENTLY
-================================================================================
+
+### 9. PROGRAM 2: USING start() AND run() DIFFERENTLY
+
 Headline:
 Understanding the Difference Between start() and run()
 
@@ -290,9 +290,9 @@ After run() call
 Summary:
 This program explains why `start()` should be used instead of directly calling `run()`.
 
-================================================================================
-10. PROGRAM 3: SETTING THREAD NAME AND PRIORITY
-================================================================================
+
+### 10. PROGRAM 3: SETTING THREAD NAME AND PRIORITY
+
 Headline:
 Naming and Prioritizing Threads
 
@@ -358,9 +358,9 @@ WorkerThread
 Summary:
 This program shows how to assign names and set priorities to threads.
 
-================================================================================
-11. PROGRAM 4: USING sleep() METHOD IN A THREAD
-================================================================================
+
+### 11. PROGRAM 4: USING sleep() METHOD IN A THREAD
+
 Headline:
 Delaying Thread Execution with sleep()
 
@@ -442,9 +442,9 @@ Thread woke up
 Summary:
 This program explains how the Thread class can pause execution using sleep().
 
-================================================================================
-12. PROGRAM 5: USING join() METHOD
-================================================================================
+
+### 12. PROGRAM 5: USING join() METHOD
+
 Headline:
 Waiting for a Thread to Finish Using join()
 
@@ -516,27 +516,27 @@ Main thread continues after join
 Summary:
 This program demonstrates how join() is used to wait for a thread to complete.
 
-================================================================================
-13. COMMON MISTAKES WHEN USING Thread CLASS
-================================================================================
+
+### 13. COMMON MISTAKES WHEN USING Thread CLASS
+
 - Calling run() directly instead of start()
 - Not handling InterruptedException properly
 - Forgetting that output order is not guaranteed
 - Using too many threads without control
 - Sharing data without synchronization
 
-================================================================================
+
 14. FINAL SUMMARY
-================================================================================
+
 The Thread class is one of the most important parts of Java multithreading.
 It allows developers to create and manage threads, control execution flow, and
 build applications that perform multiple tasks at once. Understanding methods like
 start(), run(), sleep(), join(), and setPriority() is essential for writing correct
 and efficient concurrent programs.
 
-================================================================================
+
 15. PROFESSIONAL NOTE FOR REPOSITORY USE
-================================================================================
+
 This topic is excellent for GitHub documentation because it covers:
 - definition and theory
 - practical code examples

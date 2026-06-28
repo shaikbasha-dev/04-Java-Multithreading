@@ -1,4 +1,3 @@
-```markdown
 # 09 - Sleep Method in Java
 
 ## TOPIC OVERVIEW

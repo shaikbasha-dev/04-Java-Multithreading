@@ -600,7 +600,3 @@ A recommended structure is:
 * examples/
 * outputs/
 * notes/
-
-```
-
-```

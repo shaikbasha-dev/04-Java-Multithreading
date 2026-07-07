@@ -1,4 +1,4 @@
-# 08 - Thread Priority in Java
+# Thread Priority in Java
 
 ## TOPIC OVERVIEW
 Thread priority is a concept that helps the Java scheduler decide which thread
@@ -450,23 +450,4 @@ The priority values range from 1 to 10, with 5 being the default. Methods like
 setPriority() and getPriority() allow us to inspect and modify these values. Although
 priority can influence scheduling, it does not guarantee exact execution order.
 
-## 12. PROFESSIONAL NOTE FOR REPOSITORY USE
 
-This topic is ideal for a GitHub repository because it covers:
-
-* definition and theory
-* practical examples
-* precise explanations of methods
-* comments for each line
-* sample outputs and summaries
-
-A good structure for this topic is:
-
-* theory/
-* examples/
-* outputs/
-* notes/
-
-```
-
-```

@@ -240,15 +240,6 @@ The `Runnable` interface is a powerful, standard approach for defining concurren
 
 ---
 
-## 10. PROFESSIONAL NOTE FOR REPOSITORY USE
-
-This topic is well-suited for a GitHub repository. A recommended structure to organize this documentation is:
-
-* `theory/`: For definitions and concepts.
-
-
-* `examples/`: For source code files.
-
 
 * `outputs/`: For sample execution results.
 

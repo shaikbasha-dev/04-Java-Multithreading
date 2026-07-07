@@ -1,4 +1,4 @@
-# 01 - Introduction to Multithreading in Java
+# Introduction to Multithreading in Java
 
 ## 1. What is Multithreading?
 

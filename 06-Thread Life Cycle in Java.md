@@ -1,4 +1,4 @@
-# 06 - Thread Life Cycle in Java
+# Thread Life Cycle in Java
 
 ## TOPIC OVERVIEW
 

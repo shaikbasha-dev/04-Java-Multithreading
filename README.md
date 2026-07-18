@@ -9,13 +9,11 @@ Master Java Multithreading from the fundamentals to modern concurrency through 4
 </p>
 
 <p align="center">
-
-![GitHub Repo stars](https://img.shields.io/github/stars/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge)
-![GitHub License](https://img.shields.io/github/license/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge)
-
+  <img src="https://img.shields.io/github/stars/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/github/forks/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge" alt="Forks">
+  <img src="https://img.shields.io/github/last-commit/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge" alt="Repo Size">
+  <img src="https://img.shields.io/github/license/shaikbasha-dev/04-Java-Multithreading?style=for-the-badge" alt="License">
 </p>
 
 ---

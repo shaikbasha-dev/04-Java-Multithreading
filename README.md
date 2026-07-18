@@ -826,7 +826,7 @@ Passionate about building high-quality educational repositories that simplify pr
 
 - GitHub: https://github.com/shaikbasha-dev
 - LinkedIn: https://www.linkedin.com/in/shaik-mahaboob-basha/
-- Email: *(Add your professional email here if desired.)*
+- Email: smbashadev@gmail.com
 
 ---
 
